@@ -1,0 +1,6 @@
+#!/bin/bash
+
+rm -rvf /usr/bin/debian_demo*
+rm -rvf /usr/lib/libddemo*
+
+systemctl kill -s HUP rsyslog.service

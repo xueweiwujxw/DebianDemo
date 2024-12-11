@@ -1,0 +1,4 @@
+#!/bin/bash
+
+systemctl stop debian-demo
+systemctl disable debian-demo

@@ -1,0 +1,14 @@
+/var/log/debian-demo/debian-demo*.log {
+    daily
+    missingok
+    rotate 30
+    compress
+    dateext
+    dateformat -%s
+    notifempty
+    create 0640 syslog adm
+    sharedscripts
+    postrotate
+        /usr/lib/rsyslog/rsyslog-rotate
+    endscript
+}

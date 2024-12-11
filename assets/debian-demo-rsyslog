@@ -1,0 +1,4 @@
+$template CustomFormat,"%syslogtag%%msg%\n"
+
+if $msg contains "[DEBIAN-DEMO]" then /var/log/debian-demo/debian-demo.log;CustomFormat
+& stop

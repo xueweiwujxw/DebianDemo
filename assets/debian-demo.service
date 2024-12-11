@@ -1,0 +1,12 @@
+[Unit]
+Description=Debian Demo
+After=network.target auditd.service
+
+[Service]
+ExecStart=/usr/bin/debian_demo
+KillSignal=SIGINT
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

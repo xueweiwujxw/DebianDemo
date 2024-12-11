@@ -1,0 +1,20 @@
+#!/bin/sh
+
+## permission
+chown root:root /lib/systemd/system/debian-demo.service
+chown root:root /usr/local/debian-demo/bin/debian_demo*
+chown root:root /usr/local/debian-demo/lib/libddemo*
+chown root:root /etc/logrotate.d/debian-demo
+chown root:root /etc/rsyslog.d/debian-demo.conf
+
+## link
+ln -sv /usr/local/debian-demo/bin/debian_demo* /usr/bin/
+ln -sv /usr/local/debian-demo/lib/libddemo* /usr/lib/
+
+## log
+mkdir -pv /var/log/debian-demo/
+chown syslog:adm /var/log/debian-demo/
+
+## reload rsyslog
+systemctl kill -s HUP rsyslog.service
+systemctl enable debian-demo

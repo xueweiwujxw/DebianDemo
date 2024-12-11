@@ -1,0 +1,10 @@
+#!/bin/bash
+
+service_name="debian-demo"
+
+if systemctl list-unit-files | grep -w $service_name > /dev/null 2>&1; then
+    systemctl stop $service_name
+    systemctl disable $service_name
+else
+    echo "Service $service_name not found. First installation"
+fi
